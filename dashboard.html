@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 20px;
+           
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome {{logger_data.first_name}} {{logger_data.last_name}}</h1>
+        </header>
+        <nav>
+            <ul>
+
+                <li><a style="color: white;" href="{% url 'index' %}">logout</a></li>
+                <!-- Add more menu items as needed -->
+            </ul>
+        </nav>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>last name</th>
+                        <th>Email</th>
+                        <th>Phone number</th>
+                        <th>appointment time</th>
+                        <th>Reason for the appointment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>{{logger_data.first_name}}</td>
+                        <td>{{logger_data.Last_name}}</td>
+                        <td>{{logger_data.email_id}}</td>
+                        <td>{{logger_data.phone_number}}</td>
+                        <td>{{logger_data.appointment_time}}</td>
+                        <td>{{logger_data.reason_for_the_appointment}}</td>
+
+                    </tr>
+                    <!-- Add more table rows as needed -->
+                </tbody>
+            </table>
+        </main>
+        <footer>
+            <p>&copy;online appoinment bookings@gmail.com</p>
+        </footer>
+    </div>
+</body>
+</html>

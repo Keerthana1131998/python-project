@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/login_page/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Appointment Register form</h1>
+    </div>
+    <nav class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        <ul class="nav-list">
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="section1">
+        <form class="login" action="/register_form_submission" method="POST">
+          {% csrf_token %}
+            <h2>Welcome, User!</h2>
+            <p>Please register Here</p>
+            <input type="text" placeholder="First Name" name="first_name" />
+            <input type="text" placeholder="Last Name" name="last_name" />
+            <input type="text" placeholder="Email Id" name="email_id" />
+            <input type="text" placeholder="Phone number" name="phone_number" />
+            <input type="text" placeholder="appointment Time" name="appointment_time" />
+            <input type="text" placeholder="reason for the appointment" name="reason_for_the_appointment" />
+            <input type="submit" value="Register" />
+            <div class="links">
+              <a href="#">Forgot password</a>
+              <a href="/login">Already have an account?</a>
+            </div>
+          </form>
+      </div>
+      <div class="footer">
+        <h3>online appoinment bookings@gmail.com</h3>
+      </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/login_page/css/style.css">
+
+</head>
+<body>
+    <div class="header">
+        <h1>Online Booking</h1>
+
+    </div>
+
+    <nav class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <ul class="nav-list">
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="section1">
+        <form class="login" action="/login_form_submission" method="POST">
+          {% csrf_token %}
+            <h2>Welcome, User!</h2>
+            {% for i in messages %}
+            {% if 'failed' in i.tags %}
+            <h2 style="color: blue;">{{i}}</h2>
+            {% endif %}
+            {% endfor %}
+
+            <p>Please log in</p>
+            <input type="text" placeholder="Enter your email"  name="email_id"/>
+            <input type="text" placeholder="Enter otp number"  name="otp_number"/>
+            
+            <input type="submit" value="Log In" />
+            <div class="links">
+              <a href="#">Forgot password</a>
+              <a href="/register">Dont have account?</a>
+            </div>
+          </form>
+      </div>
+
+      
+
+      <div class="footer">
+        <h3>online appoinment bookings@gmail.com</h3>
+      </div>
+    
+</body>
+</html>
